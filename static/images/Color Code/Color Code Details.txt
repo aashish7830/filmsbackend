@@ -1,0 +1,3 @@
+Light Blue: R66 G146 B157 (#42929D)
+
+Dark Blue : R81 G100 B107 (#51646B)

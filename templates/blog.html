@@ -1,0 +1,261 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TwoDots Films - Reconstructed Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <style>
+    :root {
+    --bg: #d6dbda; /* Dark Background for the page as per image */
+    --panel: #0f1522; /* Card background */
+    --white: #ffffff;
+    --dark: #264451;
+    --heading: #ffffff;
+    --accent: #42929D;
+    --muted: #8a8f94;
+    --line: #cfcfcf;
+    --quote: #42929D;
+    --card: #5b6b74;
+    --btn-gradient: linear-gradient(135deg, #6366f1, #a855f7); /* Gradient for the button */
+}
+ 
+
+body {
+    background-color: var(--bg);
+    
+    color: var(--white);
+}
+
+ 
+
+.blog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top:23px;
+    margin-bottom:230px;
+    /* background-color:#5b6b74; */
+}
+
+.blog-card {
+    background: var(--panel);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.image-box {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.category-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    color: var(--heading);
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.card-intro {
+    font-size: 1rem;
+    color: var(--white);
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.author {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Pushes button to bottom */
+}
+
+.btn-read {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--btn-gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    text-align: center;
+    width: fit-content;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.btn-read:hover {
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .blog-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-card {
+        padding: 20px;
+    }
+}
+  </style>
+</head>
+<body>
+   
+   {% include 'partials/header.html' %}
+
+ <section class="section-banner">
+      <h2 class="section-title" style="color:#556771;">Our <span class="accent">Blog</span></h2>
+    </section>
+<section class="blog-container">
+    <!-- Card 1 -->
+    <div class="blog-card">
+        <div class="image-box">
+            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
+        </div>
+        <div class="card-content">
+            <span class="category-tag">BLOG • 18 MAR 2026</span>
+            <h2 class="card-title">The Complete SaaS Tech Stack for 2026: A Founder's Guide</h2>
+            <p class="card-intro">A practical tech stack guide by Jenrix.ai for founders, CTOs, and startups building scalable SaaS platforms.</p>
+            <p class="author">By Manish Verma</p>
+            <p class="description">Discover the complete SaaS tech stack for 2026 with tools, frameworks, and best practices recommended by Jenrix.ai.</p>
+            <a href="{% url 'read_blog' 'saas-stack' %}" class="btn-read">Read Blog</a>
+        </div>
+    </div>
+
+    <!-- Card 2 (With Image) -->
+    <div class="blog-card featured">
+        <div class="image-box">
+            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
+        </div>
+        <div class="card-content">
+            <span class="category-tag">BLOG • 18 MAR 2026</span>
+            <h2 class="card-title">Technical Strategy for Non-Technical Founders</h2>
+            <p class="card-intro">A practical guide to help non-technical founders make informed tech decisions.</p>
+            <p class="author">By Manish Verma</p>
+            <p class="description">A strategic guide for SaaS founders without technical backgrounds to navigate development confidently.</p>
+            <a href="{% url 'read_blog' 'technical-strateg'%}" class="btn-read">Read Blog</a>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="blog-card">
+        <div class="image-box">
+            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
+        </div>
+        <div class="card-content">
+            <span class="category-tag">BLOG • 18 MAR 2026</span>
+            <h2 class="card-title">When to Build Custom Software vs Use Existing Tools</h2>
+            <p class="card-intro">A guide for founders and CTOs to decide between custom development and off-the-shelf solutions.</p>
+            <p class="author">By Manish Verma</p>
+            <p class="description">A strategic guide on choosing between custom software to optimize operations and product development.</p>
+            <a href="read_blog.html?id=custom-software" class="btn-read">Read Blog</a>
+        </div>
+    </div>
+
+     <!-- Card 2 (With Image) -->
+    <div class="blog-card featured">
+        <div class="image-box">
+            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
+        </div>
+        <div class="card-content">
+            <span class="category-tag">BLOG • 18 MAR 2026</span>
+            <h2 class="card-title">Technical Strategy for Non-Technical Founders</h2>
+            <p class="card-intro">A practical guide to help non-technical founders make informed tech decisions.</p>
+            <p class="author">By Manish Verma</p>
+            <p class="description">A strategic guide for SaaS founders without technical backgrounds to navigate development confidently.</p>
+            <a href="read_blog.html?id=technical-strategy" class="btn-read">Read Blog</a>
+        </div>
+    </div>
+
+
+     <!-- Card 2 (With Image) -->
+    <div class="blog-card featured">
+        <div class="image-box">
+            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
+        </div>
+        <div class="card-content">
+            <span class="category-tag">BLOG • 18 MAR 2026</span>
+            <h2 class="card-title">Technical Strategy for Non-Technical Founders</h2>
+            <p class="card-intro">A practical guide to help non-technical founders make informed tech decisions.</p>
+            <p class="author">By Manish Verma</p>
+            <p class="description">A strategic guide for SaaS founders without technical backgrounds to navigate development confidently.</p>
+            <a href="read_blog.html?id=technical-strategy" class="btn-read">Read Blog</a>
+        </div>
+    </div>
+
+
+     <!-- Card 2 (With Image) -->
+    <div class="blog-card featured">
+        <div class="image-box">
+            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
+        </div>
+        <div class="card-content">
+            <span class="category-tag">BLOG • 18 MAR 2026</span>
+            <h2 class="card-title">Technical Strategy for Non-Technical Founders</h2>
+            <p class="card-intro">A practical guide to help non-technical founders make informed tech decisions.</p>
+            <p class="author">By Manish Verma</p>
+            <p class="description">A strategic guide for SaaS founders without technical backgrounds to navigate development confidently.</p>
+            <a href="read_blog.html?id=technical-strategy" class="btn-read">Read Blog</a>
+        </div>
+    </div>
+</section>  
+
+   
+
+   
+ 
+
+  
+
+
+
+  
+{% include 'partials/footer.html' %}
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

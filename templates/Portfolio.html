@@ -1,0 +1,301 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TwoDots Films - Reconstructed Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+ <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <style>
+       
+
+        
+    
+        /* Grid Container */
+        .reel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 Columns */
+            width: 100%;
+            max-width: 1050px;
+            margin: 0 auto;
+            margin-bottom:4rem;
+            margin-top:4rem;
+        }
+
+        /* Box Styling */
+        .reel-box {
+            height: 100%;
+            display: flex;
+            width:100%;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            overflow: hidden;
+            align-items: center;
+        }
+
+        .text-box {
+            background-color: #e5e8e8; /* Light gray background */
+        }
+
+        .image-box {
+            padding: 0; /* Remove padding for images */
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Typography */
+        .reel-box h3 {
+            font-size: 32px;
+            margin: 0;
+            color: var(--heading);
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .reel-box p {
+            font-size: 20px;
+            /* margin: 10px 0 0; Margin-left: 70px ko hata diya gaya hai */
+             color: var(--heading);
+                font-weight: 500;
+                 
+        }
+
+        .reel-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Bahut zaroori: zoom image ko box ke andar rakhega */
+}
+     .reel-link:hover img {
+    transform: scale(1.08); /* 8% zoom professional lagta hai */
+}
+
+        /* --- Media Query for Mobile --- */
+        @media (max-width: 768px) {
+            .reel-header h2 {
+                font-size: 32px;
+            }
+
+            .reel-grid {
+                grid-template-columns: 1fr; /* Single Column */
+            }
+
+            .reel-box {
+                height: 300px;
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            /* Mobile par order sahi karne ke liye (Optional) */
+            .mobile-first {
+                order: -1;
+            }
+        }
+
+
+
+
+
+        /* --- Media Query for Mobile --- */
+@media (max-width: 768px) {
+    .reel-grid {
+        display: flex; /* Grid ko Flex mein badla */
+        flex-direction: column; /* Sab kuch ek ke niche ek */
+        gap: 0; 
+    }
+
+    .reel-box {
+        height: auto; /* Content ke hisaab se height */
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    /* Magic Logic: Sabhi Text boxes ko order 1 aur Images ko order 2 */
+    /* Isse har pair mein Text automatic Image ke upar aa jayega */
+    .text-box {
+        order: 1; 
+    }
+    
+    .image-box {
+        order: 2;
+        height: 300px; /* Mobile par image ki height set ki */
+    }
+
+    /* Har pair (Text + Image) ko ek group ki tarah treat karne ke liye 
+       hum order property ko pairs mein manage karenge */
+    .reel-grid div:nth-child(1) { order: 1; } /* Text 1 */
+    .reel-grid div:nth-child(2) { order: 2; } /* Image 1 */
+    .reel-grid div:nth-child(3) { order: 4; } /* Image 2 (Desktop par pehle thi, mobile par niche jayegi) */
+    .reel-grid div:nth-child(4) { order: 3; } /* Text 2 (Desktop par baad mein thi, mobile par upar aayegi) */
+    .reel-grid div:nth-child(5) { order: 5; } /* Text 3 */
+    .reel-grid div:nth-child(6) { order: 6; } /* Image 3 */
+    .reel-grid div:nth-child(7) { order: 8; } /* Image 4 */
+    .reel-grid div:nth-child(8) { order: 7; } /* Text 4 */
+    .reel-grid div:nth-child(9) { order: 9; } /* Text 5 */
+    .reel-grid div:nth-child(10) { order: 10; } /* Image 5 */
+}
+     
+          /* Image link container */
+ .image-link{
+     display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden
+ }
+
+/* Hover Effect */
+.image-link:hover img {
+    transform: scale(1.09); /* Image thodi zoom hogi */
+     cursor: pointer;
+}
+
+.image-link img {
+    display: block;
+    /* width: 110%; */
+    /* height: auto; */
+    transition: transform 0.3s ease; /* Smooth animation ke liye */
+}
+     
+   /* Arrows Styling */
+        .slider-controls1 {
+            position: absolute;
+            top: 46%;
+             /* align-items: center;  */
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+            pointer-events: none;
+            max-width: 1300px;
+        }
+
+        .arrow1 {
+            pointer-events: auto;
+            background: transparent;
+            border: none;
+            font-size: 50px;
+            color: #157e9e;
+            cursor: pointer;
+            padding: 0 20px;
+            transition: 0.3s;
+        }
+
+        .arrow1:hover {
+            color: #1cbfd2;
+            transform: scale(1.2);
+        }
+           @media (max-width: 1024px) {
+            
+            .slider-controls1 {
+            position: absolute;
+            top: 40%;
+            width: 100%;
+        }
+    }
+          @media (max-width: 768px) {
+            
+            .arrow1 {
+                font-size: 30px;
+            }
+            .slider-controls1 {
+            position: absolute;
+            top: 30%;
+            width: 100%;
+        }
+    }
+          
+    </style>
+</head>
+<body>
+   
+    {% include 'partials/header.html' %}
+
+
+     
+<div class="section-banner"><h2 class="section-title">Digital <span class="accent">Impact Stories</span></h2></div>
+     <div class="testimonial-wrapper">
+    <!-- Navigation Arrows -->
+     
+    <div class="slider-controls1">
+        <button class="arrow1" onclick="slide(-1)">&#10094;</button>
+        <button class="arrow1" onclick="slide(1)">&#10095;</button>
+    </div>
+
+    <!-- Main Slider Container -->
+    <div class="testimonial-grid-container" id="sliderContainer">
+        <div class="testimonial-grid" id="slider">
+            
+            <!-- Card 1 -->
+            <!-- Card 1 -->
+             {% for story in stories %}
+            <div class="testimonial-card">
+                <img src="{{ story.image.url }}" class="profile-img" alt="{{ story.title }}">
+                 
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+    
+<div class="section-banner" ><h2 class="section-title"  id="creative">Creative Content <span class="accent">Portfolio</span></h2></div>
+     <div class="reel-grid">
+        
+         {% for item in items %}
+
+        {% if forloop.counter|divisibleby:2 %}
+
+       
+        
+        <div class="reel-box text-box">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.category }}</p>
+        </div>
+         <div class="reel-box image-box">
+            <a href="{{ item.link }}" class="image-link" target="_blank">
+            <img src="{{ item.image.url }}" alt="{{ item.title }}"></a>
+        </div>
+         {% else %}
+          <div class="reel-box image-box">
+            <a href="{{ reel2.link }}" class="reel-link">
+            <img src="{{ item.image.url }}" alt="{{ item.title }}"></a>
+        </div>
+        <div class="reel-box text-box">
+            <h3> {{ item.title }}</h3>
+            <p>{{ item.category }}</p>
+        </div>
+        
+        {% endif %}
+        
+       {% endfor %}  
+
+    </div>
+    
+
+
+  {% include 'partials/footer.html' %}
+ 
+
+
+
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+     
+
+
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

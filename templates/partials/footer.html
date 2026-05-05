@@ -1,0 +1,65 @@
+  {% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+  
+  <footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>TwoDots Films</h4>
+      <p class="brand-desc">
+        With 25+ years of experience across advertising, media and broadcast.
+        We offer end-to-end solution, from creative storytelling & video production to digital strategy
+        and performance marketing; driving meaningful growth for brands across digital and broadcast platforms.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'team' %}">Team</a></li>
+        <li><a href="{% url 'recognition' %}">Recognition</a></li>
+        <li> <a href="{% url 'portfolio' %}">Portfolio</a></li>
+
+        <li><a href="{% url 'reviews' %}">Reviews</a></li>
+        
+         <li><a href="{% url 'blog' %}">Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Link</h4>
+      <ul class="footer-links">
+        {% comment %} <li><a href="{% url 'recognition' %}#contact-section">Contact US</a></li> {% endcomment %}
+        <div class="contact-info">
+        <p><strong>Email:</strong></p>
+        <p><a href="mailto:contact@2dotsfilms.com"  class="contact-info">contact@2dotsfilms.com</a></p>
+         
+      </div>
+            <div class="contact-info">
+        <p><strong>Phone:</strong></p>
+        <p><a href="tel:+919953655158" class="contact-info">+91 9953655158</a></p>
+        <p><a href="tel:+919873088079"  class="contact-info">+91 9873088079</a></p>
+        <p><a href="tel:+919911262034"  class="contact-info">+91 9911262034</a></p>
+      </div>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Information</h4>
+      <p>1556, Gaur City Mall, Greater Noida West, Gaur City 1, Sector 4, Greater Noida, UP-201318, India</p>
+      
+  
+      
+
+      <div class="socials">
+          <a href="https://www.youtube.com/@studio17filmz-Twodotsfilms" class="social-icon" target="_blank" rel="noopener noreferrer">▶</a>
+          <a href="https://www.facebook.com/2DotsFilms" class="social-icon" target="_blank" rel="noopener noreferrer">f</a>
+          <a href="https://www.linkedin.com/company/twodots-films/posts/?feedView=all" class="social-icon" target="_blank"  rel="noopener noreferrer">in</a>
+          <a href="" class="social-icon">◎</a>
+      </div>
+    </div>
+  </div>
+</footer>

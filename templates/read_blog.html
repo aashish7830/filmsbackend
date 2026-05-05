@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Strategy for Non-Technical Founders | Jenrix.ai</title>
+    <!-- CSS Path Fix: Use absolute path if in subfolders, or ensure style.css is in same directory -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+
+    <style>
+        :root {
+    --bg: #d6dbda;
+    --panel: #161e2d;
+    --white: #ffffff;
+    --accent: #42929D;
+    --muted: #94a3b8;
+    --card-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+     
+    
+     
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    background: rgba(11, 10, 10, 0.05);
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 1px solid var(--card-border);
+    margin-bottom: 20px;
+    font-size: 17px;
+    transition: 0.3s;
+    font-weight:600;
+}
+
+.back-btn:hover { background: rgba(255, 255, 255, 0.1); }
+
+/* Header Panel (Image 1) */
+.blog-header-panel {
+    background: var(--panel);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.category-label {
+    color: var(--accent);
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.blog-header-panel h1 {
+    font-size: 2.5rem;
+    margin: 15px 0;
+    line-height: 1.2;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.meta-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 13px;
+    border: 1px solid var(--card-border);
+}
+
+/* Featured Image */
+.featured-image-box {
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid var(--card-border);
+}
+
+.featured-image-box img { width: 100%; display: block; }
+
+/* Content Panel (Image 2-7) */
+.content-panel {
+    background: var(--panel);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 50px;
+}
+
+.content-panel h2 {
+    font-size: 2rem;
+    margin: 40px 0 20px;
+    color: var(--white);
+}
+
+.content-panel p {
+    margin-bottom: 20px;
+    color: #cbd5e1;
+}
+
+.content-panel ul {
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.content-panel li {
+    margin-bottom: 12px;
+    color: #cbd5e1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .blog-header-panel, .content-panel { padding: 25px; }
+    .blog-header-panel h1 { font-size: 1.8rem; }
+}
+    </style>
+</head>
+<body class="blog-details-page">
+
+      {% include 'partials/header.html' %}
+
+    <div class="container">
+    <a href="{% url 'blog' %}" class="back-btn">← Back to Blogs</a>
+
+    <header class="blog-header-panel">
+        <span class="category-label" id="blog-category">BLOG</span>
+        <h1 id="blog-title">Loading...</h1>
+        <p class="subtitle" id="blog-subtitle"></p>
+        
+        <div class="meta-tags">
+            <span class="tag" id="blog-date"></span>
+            <span class="tag" id="blog-author"></span>
+        </div>
+    </header>
+
+    <div class="featured-image-box">
+        <img id="blog-image" src="" alt="Featured Image">
+    </div>
+
+    <!-- Is section ko empty rakhein, JS content fill karega -->
+    <article class="content-panel" id="blog-content">
+
+    </article>
+</div>
+
+      {% include 'partials/footer.html' %}
+
+</body>
+  
+<script src="{% static 'js/script.js' %}"></script>
+
+<script src="{% static 'js/blog-data.js' %}"></script>
+ 
+</html>

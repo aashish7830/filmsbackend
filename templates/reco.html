@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TwoDots Films - Reconstructed Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <style>
+    /* Container styling */
+.recognition-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.recognition-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #f3f2f2;
+}
+
+/* Desktop/Laptop: Ek hi row mein 4 columns */
+.trophy-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.trophy-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-circle {
+  width: 100%;
+  max-width: 160px;
+  margin-bottom: 15px;
+}
+
+.logo-circle img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.trophy-item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+/* --- Media Query for Mobile --- */
+@media (max-width: 768px) {
+  .trophy-layout {
+    /* Phone par ek row mein 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+   </style>
+</head>
+<body>
+   
+  {% include 'partials/header.html' %}
+
+
+ <section class="page-section" id="recognition">
+      <div class="section-banner"><h2 class="section-title">Recognition <span class="accent">Along the Way</span></h2></div>
+      
+            
+    <div class="recognition-container">
+     
+    
+    <div class="trophy-layout">
+        <div class="trophy-item">
+            <div class="logo-circle">
+                <img src="{% static 'images/Recognition_Along_the_Way/Promax Award.png' %}" alt="Promax Awards">
+            </div>
+            <h3>Promax Awards</h3>
+        </div>
+
+        <div class="trophy-item">
+            <div class="logo-circle">
+                <img src="{% static 'images/Recognition_Along_the_Way/NT Award.png' %}" alt="NT Awards">
+            </div>
+            <h3>NT Awards</h3>
+        </div>
+
+        <div class="trophy-item">
+            <div class="logo-circle">
+                <img src="{% static 'images/Recognition_Along_the_Way/AFAQS.png' %}" alt="AFAQS">
+            </div>
+            <h3>AFAQS!</h3>
+        </div>
+
+        <div class="trophy-item">
+            <div class="logo-circle">
+                <img src="{% static 'images/Recognition_Along_the_Way/ENBA Award.png' %}" alt="ENBA Awards">
+            </div>
+            <h3>ENBA Awards</h3>
+        </div>
+    </div>
+</div>
+      <div class="section-banner contact-lead"  id="contact-section" id="contact-form">
+        <h2 class="section-title">Contact <span class="accent">Us</span></h2>
+        <p class="section-banner-p">Every story eventually looks for it’s next beginning. If you’re holding a thought that needs direction.</p>
+      </div>
+<form method="POST" action="{% url 'submit_contact' %}">
+      <div class="contact-box">
+        
+          {% csrf_token %}
+        <div class="form-grid">
+          <input class="input" name="name" type="text" placeholder="Name">
+          <input class="input" type="text" name="Mobile"    placeholder="Enter your mobile number" required>
+          <div class="two-col">
+            <input class="input"  type="text" placeholder="Subject">
+            <input class="input" name="email" type="email" placeholder="Email">
+            
+         
+             
+        
+     
+          
+          <textarea class="textarea" name="message" placeholder="Message"></textarea>
+          <div><button class="btn">Send Message</button></div>
+        </div>
+      </div>
+      </div>
+ 
+      <div class="newsletter">
+        <div>
+          <h3 class="newsletter-title">Two Dots One Conversation<br><span class="accent">The beginning of a story</span></h3>
+        </div>
+        {% comment %} <form class="newsletter-form">
+          <input class="input" type="email" placeholder="Email">
+          <button class="btn" type="button">Submit</button>
+        </form> {% endcomment %}
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+ {% include 'partials/footer.html' %}
+
+
+
+
+
+
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

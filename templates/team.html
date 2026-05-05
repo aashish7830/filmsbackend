@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TwoDots Films - Reconstructed Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  
+</head>
+<body>
+   
+  {% include 'partials/header.html' %}
+ 
+ 
+ 
+ 
+ 
+ 
+ <section class="page-section" id="team">
+      <div class="section-banner"><h2 class="section-title">The People <span class="accent">Behind The Craft</span></h2></div>
+      <div class="team-wrap">
+        <p class="team-intro">TwoDotsFilms is led by professionals who have told stories when the nation was watching. Together, the partners bring 25+ years of combined experience, rooted in India’s most trusted newsrooms and evolving digital platforms.</p>
+        <div class="team-list">
+          {% for member in members %}
+          <div class="team-member">
+            <div class="avatar-ring"><img src="{{ member.image.url }}" alt="{{ member.name }}"></div>
+            <h3>{{ member.name }}</h3>
+            <div class="role">{{ member.role }}</div>
+            <p>{{ member.description }}</p>
+          </div>
+          {% endfor %}
+        
+          
+           
+          
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+  {% include 'partials/footer.html' %}
+
+
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

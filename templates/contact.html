@@ -1,0 +1,662 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <!-- =================== BASIC META =================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Contact Us</title>
+
+        <meta name="keywords" content="Two Dots" />
+
+        <meta name="description" content="Two Dots" />
+
+    <meta name="author" content="Two Dots" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#E80000" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+
+
+    <!-- =================== OPEN GRAPH META =================== -->
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="Two Dots" />
+
+        <meta property="og:title" content="Two Dots" />
+
+        <meta property="og:description" content="Two Dots" />
+
+        <!-- IMPORTANT: OG image should be absolute URL -->
+        <meta property="og:image" itemprop="image" content="https://www.towdots.com/Og.png" />
+
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="800" />
+
+        <meta property="og:url" content="https://www.twodots.com/" />
+
+        <meta property="og:type" content="website" />
+
+    <!-- =================== TWITTER CARDS (VERY IMPORTANT) =================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+        <meta name="twitter:title" content="Two Dots" />
+
+        <meta name="twitter:description" content="Two Dots" />
+
+        <meta name="twitter:image" content="https://www.TwoDots.com/Og.png" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+
+   <style>
+    /* =========================
+           CONTACT PAGE - ISOLATED
+        ========================= */
+    .contact-page,
+    .contact-page * {
+        box-sizing: border-box;
+    }
+
+    .contact-page {
+        --cp-dark: #234455;
+        --cp-dark-2: #2f5669;
+        --cp-accent: #49a8b8;
+        --cp-bg: #edf3f4;
+        --cp-card: #ffffff;
+        --cp-muted: #667085;
+        --cp-border: rgba(35, 68, 85, 0.12);
+        --cp-shadow: 0 18px 50px rgba(16, 24, 40, 0.08);
+        background: linear-gradient(180deg, #f7f9fa 0%, #eef3f4 100%);
+        padding: 60px 0 70px;
+        font-size: 16px !important;
+        line-height: 1.5;
+    }
+
+        .contact-page .container.contact-container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+    /* =========================
+           HERO
+        ========================= */
+    .contact-hero {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    .contact-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: rgba(73, 168, 184, 0.12);
+        color: var(--cp-dark);
+        font-size: 15px !important;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+
+    .contact-title {
+        margin: 0 0 14px;
+        font-size: clamp(36px, 5vw, 64px) !important;
+        line-height: 1.08;
+        font-weight: 800;
+        color: #1f3642;
+    }
+
+        .contact-title .accent {
+            color: var(--cp-accent);
+        }
+
+    .contact-subtitle {
+        max-width: 760px;
+        margin: 0 auto;
+        color: var(--cp-muted);
+        font-size: 18px !important;
+        line-height: 1.8;
+    }
+
+    /* =========================
+           MAIN CARD
+        ========================= */
+    .contact-main-card {
+        background: rgba(255,255,255,.92);
+        border: 1px solid rgba(255,255,255,.8);
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: var(--cp-shadow);
+        margin-top: 36px;
+    }
+
+        .contact-main-card .row {
+            margin: 0;
+        }
+
+    .contact-form-wrap {
+        background: linear-gradient(180deg, #ffffff 0%, #f6f9fa 100%);
+        padding: 46px 38px;
+        height: 100%;
+    }
+
+    .contact-kicker {
+        color: var(--cp-accent);
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        font-size: 13px !important;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    .contact-form-title {
+        color: #1f3642;
+        font-size: clamp(28px, 3vw, 40px) !important;
+        line-height: 1.15;
+        font-weight: 800;
+        margin-bottom: 12px;
+    }
+
+    .contact-form-desc {
+        color: var(--cp-muted);
+        font-size: 16px !important;
+        line-height: 1.8;
+        margin-bottom: 28px;
+    }
+
+    .contact-visual {
+        position: relative;
+        min-height: 100%;
+        background: #dce7ea;
+    }
+
+        .contact-visual img {
+            width: 100%;
+            height: 100%;
+            min-height: 620px;
+            object-fit: cover;
+            display: block;
+        }
+
+    .contact-visual-overlay {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 24px;
+        background: linear-gradient(180deg, rgba(25, 45, 58, 0.18), rgba(25, 45, 58, 0.86));
+        border-radius: 24px;
+        padding: 24px;
+        color: #fff;
+    }
+
+        .contact-visual-overlay h3 {
+            margin: 0 0 8px;
+            font-size: 28px !important;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .contact-visual-overlay p {
+            margin: 0;
+            font-size: 15px !important;
+            line-height: 1.75;
+            color: rgba(255,255,255,.9);
+        }
+
+    /* =========================
+           CONTACT INFO CARDS
+        ========================= */
+    .contact-info-section {
+        margin-top: 50px;
+    }
+
+    .contact-info-card {
+        height: 100%;
+        background: var(--cp-card);
+        border: 1px solid var(--cp-border);
+        border-radius: 24px;
+        box-shadow: 0 10px 28px rgba(16,24,40,.04);
+        text-align: center;
+        padding: 30px 22px;
+        transition: all .25s ease;
+    }
+
+        .contact-info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(16,24,40,.08);
+        }
+
+    .contact-icon {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(73,168,184,.16), rgba(35,68,85,.10));
+        color: var(--cp-dark);
+        font-size: 28px !important;
+        font-weight: 700;
+    }
+
+    .contact-info-card h3 {
+        margin: 0 0 14px;
+        font-size: 20px !important;
+        line-height: 1.3;
+        font-weight: 800;
+        color: #213844;
+    }
+
+    .contact-info-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contact-info-card li {
+        color: var(--cp-muted);
+        font-size: 16px !important;
+        line-height: 1.8;
+        word-break: break-word;
+    }
+
+    .contact-info-card a {
+        color: var(--cp-dark);
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+        .contact-info-card a:hover {
+            color: var(--cp-accent);
+        }
+
+    /* =========================
+           SUPPORT CTA
+        ========================= */
+    .support-cta {
+        margin-top: 56px;
+        background: linear-gradient(135deg, #234455 0%, #2f5669 100%);
+        border-radius: 28px;
+        padding: 46px 26px;
+        color: #fff;
+        box-shadow: var(--cp-shadow);
+        text-align: center;
+    }
+
+        .support-cta h2 {
+            margin: 0 0 12px;
+            font-size: clamp(30px, 3vw, 44px) !important;
+            line-height: 1.15;
+            font-weight: 800;
+        }
+
+        .support-cta p {
+            max-width: 760px;
+            margin: 0 auto 24px;
+            color: rgba(255,255,255,.88);
+            font-size: 17px !important;
+            line-height: 1.8;
+        }
+
+        .support-cta .btn-help {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 54px;
+            padding: 0 28px;
+            border-radius: 999px;
+            background: #fff;
+            color: var(--cp-dark);
+            text-decoration: none;
+            font-size: 16px !important;
+            font-weight: 700;
+            border: none;
+            transition: all .25s ease;
+        }
+
+            .support-cta .btn-help:hover {
+                background: #f2f7f8;
+                color: var(--cp-dark-2);
+            }
+
+    /* =========================
+           FORM INSIDE PARTIAL
+        ========================= */
+    .contact-page .enquiry-form .form-label {
+        display: block;
+        margin-bottom: 8px;
+        color: #213844;
+        font-size: 15px !important;
+        font-weight: 700;
+    }
+
+    .contact-page .enquiry-form .form-control {
+        width: 100%;
+        min-height: 58px;
+        border: 1px solid rgba(35,68,85,.14);
+        background: #fff;
+        color: #213844;
+        padding: 14px 18px;
+        font-size: 16px !important;
+        box-shadow: none !important;
+    }
+
+        .contact-page .enquiry-form .form-control.rounded-pill {
+            border-radius: 999px !important;
+        }
+
+    .contact-page .enquiry-form textarea.form-control {
+        min-height: 150px;
+        border-radius: 22px !important;
+        resize: vertical;
+    }
+
+    .contact-page .enquiry-form .form-control:focus {
+        border-color: rgba(73,168,184,.55);
+        box-shadow: 0 0 0 .25rem rgba(73,168,184,.14) !important;
+    }
+
+    .contact-page .enquiry-form .btn-submit {
+        min-height: 56px;
+        padding: 0 30px;
+        border: none;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--cp-dark) 0%, var(--cp-dark-2) 100%);
+        color: #fff;
+        font-size: 16px !important;
+        font-weight: 700;
+        box-shadow: 0 14px 24px rgba(35,68,85,.16);
+    }
+
+        .contact-page .enquiry-form .btn-submit:hover {
+            background: linear-gradient(135deg, #1e3948 0%, #294b5c 100%);
+        }
+
+    .contact-page .enquiry-form .invalid-tooltip {
+        position: static;
+        display: block;
+        margin-top: 6px;
+        padding: 0;
+        background: transparent !important;
+        font-size: 13px !important;
+        color: #dc3545;
+    }
+
+    /* =========================
+           RESPONSIVE
+        ========================= */
+    @media (max-width: 1199.98px) {
+        .contact-visual img {
+            min-height: 540px;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .contact-page {
+            padding: 42px 0 56px;
+        }
+
+        .contact-form-wrap {
+            padding: 34px 24px;
+        }
+
+        .contact-visual img {
+            min-height: 340px;
+        }
+
+        .contact-visual-overlay {
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            padding: 18px;
+        }
+
+            .contact-visual-overlay h3 {
+                font-size: 22px !important;
+            }
+    }
+
+    @media (max-width: 767.98px) {
+        .contact-page .container.contact-container {
+            padding-left: 14px;
+            padding-right: 14px;
+        }
+
+        .contact-page {
+            padding: 30px 0 42px;
+        }
+
+        .contact-subtitle {
+            font-size: 16px !important;
+        }
+
+        .contact-main-card {
+            border-radius: 22px;
+            margin-top: 24px;
+        }
+
+        .contact-form-wrap {
+            padding: 26px 18px;
+        }
+
+        .contact-visual img {
+            min-height: 260px;
+        }
+
+        .contact-info-section {
+            margin-top: 32px;
+        }
+
+        .contact-info-card {
+            padding: 24px 18px;
+            border-radius: 20px;
+        }
+
+        .support-cta {
+            margin-top: 36px;
+            padding: 34px 18px;
+            border-radius: 22px;
+        }
+    }
+</style>
+
+</head>
+<body> 
+
+
+        
+
+
+     {% include 'partials/header.html' %}
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+<main class="content-wrapper contact-page">
+    <div class="container contact-container">
+
+        <section class="contact-hero">
+            <div class="contact-badge">Let’s Connect</div>
+            <h1 class="contact-title">Contact <span class="accent">Us</span></h1>
+            <p class="contact-subtitle">
+                Tell us about your requirement, campaign, creative need, or business objective.
+                Our team will review your message and get back to you with the right next step.
+            </p>
+        </section>
+
+        <section class="contact-main-card">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                    <div class="contact-form-wrap">
+                        <div class="contact-kicker">Start the conversation</div>
+                        <h2 class="contact-form-title">Send us your enquiry</h2>
+                        <p class="contact-form-desc">
+                            Fill out the form below and share your requirement clearly. We will connect with you as soon as possible.
+                        </p>
+
+                        
+<form method="post"   class="enquiry-form needs-validation"  action="{% url 'submit_contact' %}">
+{% csrf_token %}
+    <input type="hidden" name="LeadsSourceUrl" value="https://2dotsfilms.com/contact" required>
+
+    <div class="position-relative mb-4">
+        <label for="name" class="form-label">Name *</label>
+        <input type="text"
+               name="Name"
+               class="form-control rounded-pill"
+               id="name"
+               placeholder="Enter your full name"
+               required>
+        <div class="invalid-tooltip">Enter your name.</div>
+    </div>
+
+    <div class="position-relative mb-4">
+        <label for="email" class="form-label">Email *</label>
+        <input type="email"
+               name="Email"
+               class="form-control rounded-pill"
+               id="email"
+               placeholder="Enter your email address"
+               required>
+        <div class="invalid-tooltip">Enter your email address.</div>
+    </div>
+
+    <div class="position-relative mb-4">
+        <label for="mobile" class="form-label">Mobile *</label>
+        <input type="text"
+               name="Mobile"
+               class="form-control rounded-pill"
+               id="mobile"
+               placeholder="Enter your mobile number"
+               required>
+        <div class="invalid-tooltip">Enter your mobile number.</div>
+    </div>
+
+    <div class="position-relative mb-4">
+        <label for="message" class="form-label">Message *</label>
+        <textarea name="message"
+                  class="form-control"
+                  id="message"
+                  rows="5"
+                  placeholder="Write your message here"
+                  required></textarea>
+        <div class="invalid-tooltip">Write your message.</div>
+    </div>
+
+    <div class="pt-2">
+        <button type="submit" class="btn-submit">
+            Send Message
+        </button>
+    </div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8Bshz9-E8WhNjQVyuu-ZvnZUAsh69pFmxRuGHjja-24EjaKsnsipzOX9cNIetKWOeEJ32nWsOgO4dzOIrOl1gEjgIAREZlQL-Ux7DA3fEyefAmeH8TicyjRqu5JGgku8MPMslT5SEQmeW4o6VISZBVY" />
+</form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="contact-info-section">
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">☎</div>
+                        <h3>Call us directly</h3>
+                        <ul>
+                            <li>Customers</li>
+                            <li><a href="tel:&#x2B;91 8810569675">&#x2B;91 8810569675</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">✉</div>
+                        <h3>Send a message</h3>
+                        <ul>
+                            <li>Customers</li>
+                            <li><a href="mailto:support@egshoppers.com">support@egshoppers.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">⌂</div>
+                        <h3>Store location</h3>
+                        <ul>
+                            <li>Enquiry Gate Pvt. Ltd.   1559, 15th Floor, Gaur City Mall</li>
+                            <li>Greater Noida, India</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">⏰</div>
+                        <h3>Working hours (IST)</h3>
+                        <ul>
+                            <li>Mon - Fri: 10:00 - 18:00</li>
+                            <li>Sat - Sun: 10:00 - 15:00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="support-cta">
+            <h2>Looking for support?</h2>
+            <p>
+                We might already have what you are looking for. Check the FAQs or move to the Help Center
+                for quick answers, guidance, and support resources.
+            </p>
+            <a class="btn-help" href="#!">Help Center</a>
+        </section>
+
+    </div>
+</main>
+
+
+
+
+ {% include 'partials/footer.html' %}
+
+
+
+
+
+ 
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+     
+    <script>
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('success') === '1') {
+    alert("✅ Message sent successfully!");
+}
+</script>
+</body>
+</html>
