@@ -46,7 +46,7 @@ body {
 }
 
 .blog-card {
-    background: var(--panel);
+    background: #0f1522;;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     padding: 30px;
@@ -151,97 +151,22 @@ body {
       <h2 class="section-title" style="color:#556771;">Our <span class="accent">Blog</span></h2>
     </section>
 <section class="blog-container">
+    {% for blog in blogs %}
     <!-- Card 1 -->
     <div class="blog-card">
         <div class="image-box">
-            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
+            <img src="{{ blog.image.url }}" alt="AI-Enabled Experiences">
         </div>
         <div class="card-content">
-            <span class="category-tag">BLOG • 18 MAR 2026</span>
-            <h2 class="card-title">The Complete SaaS Tech Stack for 2026: A Founder's Guide</h2>
-            <p class="card-intro">A practical tech stack guide by Jenrix.ai for founders, CTOs, and startups building scalable SaaS platforms.</p>
-            <p class="author">By Manish Verma</p>
-            <p class="description">Discover the complete SaaS tech stack for 2026 with tools, frameworks, and best practices recommended by Jenrix.ai.</p>
-            <a href="{% url 'read_blog' 'saas-stack' %}" class="btn-read">Read Blog</a>
+            <span class="category-tag">BLOG • {{ blog.date }}</span>
+            <h2 class="card-title">{{ blog.title }}</h2>
+            <p class="card-intro">{{ blog.intro }}</p>
+            <p class="author">By {{ blog.author }}</p>
+            <p class="description">{{ blog.description|truncatewords:20 }}</p>
+            <a href="{% url 'read_blog' blog.slug %}" class="btn-read">Read Blog</a>
         </div>
     </div>
-
-    <!-- Card 2 (With Image) -->
-    <div class="blog-card featured">
-        <div class="image-box">
-            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
-        </div>
-        <div class="card-content">
-            <span class="category-tag">BLOG • 18 MAR 2026</span>
-            <h2 class="card-title">Technical Strategy for Non-Technical Founders</h2>
-            <p class="card-intro">A practical guide to help non-technical founders make informed tech decisions.</p>
-            <p class="author">By Manish Verma</p>
-            <p class="description">A strategic guide for SaaS founders without technical backgrounds to navigate development confidently.</p>
-            <a href="{% url 'read_blog' 'technical-strateg'%}" class="btn-read">Read Blog</a>
-        </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="blog-card">
-        <div class="image-box">
-            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
-        </div>
-        <div class="card-content">
-            <span class="category-tag">BLOG • 18 MAR 2026</span>
-            <h2 class="card-title">When to Build Custom Software vs Use Existing Tools</h2>
-            <p class="card-intro">A guide for founders and CTOs to decide between custom development and off-the-shelf solutions.</p>
-            <p class="author">By Manish Verma</p>
-            <p class="description">A strategic guide on choosing between custom software to optimize operations and product development.</p>
-            <a href="read_blog.html?id=custom-software" class="btn-read">Read Blog</a>
-        </div>
-    </div>
-
-     <!-- Card 2 (With Image) -->
-    <div class="blog-card featured">
-        <div class="image-box">
-            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
-        </div>
-        <div class="card-content">
-            <span class="category-tag">BLOG • 18 MAR 2026</span>
-            <h2 class="card-title">Technical Strategy for Non-Technical Founders</h2>
-            <p class="card-intro">A practical guide to help non-technical founders make informed tech decisions.</p>
-            <p class="author">By Manish Verma</p>
-            <p class="description">A strategic guide for SaaS founders without technical backgrounds to navigate development confidently.</p>
-            <a href="read_blog.html?id=technical-strategy" class="btn-read">Read Blog</a>
-        </div>
-    </div>
-
-
-     <!-- Card 2 (With Image) -->
-    <div class="blog-card featured">
-        <div class="image-box">
-            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
-        </div>
-        <div class="card-content">
-            <span class="category-tag">BLOG • 18 MAR 2026</span>
-            <h2 class="card-title">Technical Strategy for Non-Technical Founders</h2>
-            <p class="card-intro">A practical guide to help non-technical founders make informed tech decisions.</p>
-            <p class="author">By Manish Verma</p>
-            <p class="description">A strategic guide for SaaS founders without technical backgrounds to navigate development confidently.</p>
-            <a href="read_blog.html?id=technical-strategy" class="btn-read">Read Blog</a>
-        </div>
-    </div>
-
-
-     <!-- Card 2 (With Image) -->
-    <div class="blog-card featured">
-        <div class="image-box">
-            <img src="images\success-story\Elon.png" alt="AI-Enabled Experiences">
-        </div>
-        <div class="card-content">
-            <span class="category-tag">BLOG • 18 MAR 2026</span>
-            <h2 class="card-title">Technical Strategy for Non-Technical Founders</h2>
-            <p class="card-intro">A practical guide to help non-technical founders make informed tech decisions.</p>
-            <p class="author">By Manish Verma</p>
-            <p class="description">A strategic guide for SaaS founders without technical backgrounds to navigate development confidently.</p>
-            <a href="read_blog.html?id=technical-strategy" class="btn-read">Read Blog</a>
-        </div>
-    </div>
+    {% endfor %}
 </section>  
 
    

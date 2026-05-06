@@ -13,6 +13,9 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from .models import ContactLead
 from django.conf import settings
+from .models import OurBlog
+from django.shortcuts import render, get_object_or_404
+from .models import ReadBlog
  
  
 
@@ -86,7 +89,8 @@ def review_page(request):
 
 
 def blog(request):
-    return render(request, 'blog.html')
+      blogs = OurBlog.objects.all().order_by('-date')
+      return render(request, 'blog.html',{'blogs': blogs})
     
 
 
@@ -141,5 +145,7 @@ def submit_contact(request):
 
 
 
-def read_blog(request, id):
-    return render(request, 'read_blog.html', {'id': id})
+def read_blog(request, slug):
+    blog = get_object_or_404(ReadBlog, slug=slug)
+     
+    return render(request, 'read_blog.html', {'blog': blog})

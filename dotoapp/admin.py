@@ -7,6 +7,7 @@ from .models import DigitalImpactStory
 from .models import CreativeContentPortfolio
 from .models import AddYourWords
 from .models import SuccessStories
+from .models import OurBlog
 
  
 
@@ -58,3 +59,24 @@ class AddYourWordsAdmin(admin.ModelAdmin):
 class SuccessStoriesAdmin(admin.ModelAdmin):
     list_display = ('name', 'designation', 'created_at')
     search_fields = ('name', 'designation')
+
+
+
+admin.site.register(OurBlog)
+list_display = ('title', 'author', 'date')
+prepopulated_fields = {"slug": ("title",)}
+
+
+
+
+admin.site.site_header = "Two Dots Film Admin"
+admin.site.site_title = "Two Dots Film Dashboard"
+admin.site.index_title = "Welcome to Two Dots Film Panel"
+
+from .models import ReadBlog
+@admin.register(ReadBlog)
+class ReadBlogAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'author', 'created_at')
+    search_fields = ('title', 'category', 'author')
+
+    prepopulated_fields = {"slug": ("title",)}

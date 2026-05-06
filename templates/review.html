@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TwoDots Films - Reconstructed Layout</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,24 +54,27 @@
   
 .reel-box h3 {
     font-family: 'Arial Black', 'Arial', sans-serif; /* Heavy font for Nexa */
-    font-size: 40px; /* Large heading */
+    font-size: 25px; /* Large heading */
     font-weight: 900;
     color: #546670;
     margin: 0;
     line-height: 1;
+    text-align: center;
     letter-spacing: -1.5px; /* Nexa wale text mein letters kafi paas hain */
     text-align: center;
 }
 
 .reel-box p {
     font-family: 'Arial', sans-serif;
-    font-size: 24px; /* Subheading size */
+    font-size: 18px; /* Subheading size */
     font-weight: 700; /* Commercial thoda bold hai image mein */
     color: #546670;
     margin: 0px 0 0; /* Heading ke ekdum niche */
     line-height: 1.6;
     letter-spacing: -0.5px;
-    margin-left:140px;
+    text-align: center;
+     
+    {% comment %} margin-left:140px; {% endcomment %}
 }
  
         /* --- Media Query for Mobile --- */
@@ -176,17 +180,20 @@
 
         .card-header {
             display: flex;
-            /* align-items: left; */
+             {% comment %} align-items: left;   {% endcomment %}
             /* margin-bottom: 15px; */
+            position: relative;
         }
 
         .profile-img {
-            width: 60px;
-            height: 60px;
+            width: 60px !important;  /* Apne hisab se badhayein (e.g., 50px, 80px) */
+            height: 60px !important;
             border-radius: 50%;
             border: 2px solid #d4af37;
             object-fit: cover;
             background: #eee;
+            margin-left:-3rem;
+            
         }
 
         .user-info {
@@ -202,15 +209,15 @@
 
         .stars {
             color: #ffb400;
-            font-size: 12px;
+            font-size: 14px !important;
         }
 
         .quote-icon {
             font-size: 35px;
-            color: #e3effb;
+            color: #556771;
             position: absolute;
-            right: 25px;
-            top: 25px;
+            margin-left: 10rem !important;
+            {% comment %} top: 25px; {% endcomment %}
         }
 
         .review-text {
@@ -248,6 +255,12 @@
             .testimonial-card {
                 flex: 0 0 calc(50% - 20px);
             }
+            .stars{
+                font-size:5px;
+            }
+            .subline{
+                width:100px;
+            }
         }
 
         /* Mobile Phone (1 card - No Cutting) */
@@ -259,6 +272,9 @@
             }
             .slider-wrapper {
                 gap: 0;
+            }
+            .stars{
+                font-size:3px;
             }
         }
 
@@ -427,7 +443,7 @@
                                 </div>
                                 <i class="fa-solid fa-quote-right quote-icon"></i>
                             </div>
-                            <p class="review-text">{{ r.review }}</p>
+                            <p class="review-text">{{ r.review|truncatewords:8 }}</p>
                         </div>
                         {% endfor %}
                  
@@ -438,7 +454,7 @@
     <div class="dots-container" id="dots"></div>
 </section>
       <div class="section-banner"><h2 class="section-title">Success <span class="accent">Stories</span></h2>
-        <div class="success-intro" style="color:var(--heading);">“What it’s really like to work with us; straight from our clients”</div></div>
+        <div class="success-intro" style="color:var(--heading); font-size:18px;">“What it’s really like to work with us; straight from our clients”</div></div>
          </section>
 
 

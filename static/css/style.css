@@ -14,7 +14,7 @@
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;
-          font-size: 95%;
+          font-size: 100%;
         }
     body{
       font-family:'Inter',sans-serif;
@@ -205,7 +205,7 @@
 
 .main-video {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   display: block;
   object-fit: contain; /* Video crop nahi hogi */
   background: #000; /* Sidebar black rahenge agar video ratio alag hai */
@@ -242,10 +242,14 @@
       text-align:center;
       background:#dfdfdf;
     }
+     
+    .accent{
+        color:#4B9EA8;
 
+    }
     .headline-block h2{
       color:#4B9EA8;
-      font-size:74px;
+      font-size:70px;
       font-weight:900;
       line-height:1.15;
       text-transform:uppercase;
@@ -254,7 +258,7 @@
     }
     .service-btn1 h2 {
     color: #4B9EA8;
-    font-size: 74px;
+    font-size: 70spx;
     font-weight: 900;
     line-height: 1.15;
     text-transform: uppercase;
@@ -315,7 +319,7 @@
     }
 
     .section-title{
-      font-size:72px;
+      font-size:70px;
       font-weight:900;
       color:var(--heading);
       line-height:1.05;
@@ -521,7 +525,7 @@
 
         /* Container for 3 cards view */
         .testimonial-grid-container {
-            width: 90%;
+            width: 95%;
             max-width: 1200px;
             overflow: hidden;
             margin: 0 auto;
@@ -886,6 +890,7 @@
       text-align:center;
 
     }
+      
     .review-box{background:#000;color:#fff;padding:26px 24px;margin-top:26px}
     .review-top-btn{background:#f4f4f4;color:#444;border:none;padding:12px 18px;border-radius:6px;font-size:14px;margin-bottom:22px}
     .review-summary{padding:10px 0 20px;border-top:1px solid #393939;border-bottom:1px solid #393939;color:#fff}
@@ -900,13 +905,13 @@
     .success-wrap{padding:24px 78px 62px}
     .success-intro{
        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Clean Sans-serif font */
-    font-size: 32px; /* Screenshot ke hisaab se perfect size */
+    font-size: 18px !important; /* Screenshot ke hisaab se perfect size */
     font-weight: 600; /* Semi-bold look */
     /* Deep dark blue/charcoal color jo image mein hai */
     text-align: center; /* Center alignment */
     padding: 20px;
      
-    
+    color:var(--heading) !important;
     /* Letter spacing ko thoda kam kiya hai compact look ke liye */
     letter-spacing: -0.2px; 
     /* line-height: 1; */
@@ -999,6 +1004,14 @@
        
         font-size: 18px !important;
         width:10%;
+    }
+    .success-intro{
+        font-size: 18px !important;
+        padding: 10px !important;
+        line-height: 1.4 !important;
+        width: 100% !important;
+
+
     }
 
     .review-body, .review-reply {

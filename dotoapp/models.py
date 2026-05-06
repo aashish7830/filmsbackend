@@ -133,3 +133,44 @@ class ContactLead(models.Model):
 
 
 
+from django.utils.text import slugify
+
+class OurBlog(models.Model):
+    slug = models.SlugField(unique=True)
+    title = models.CharField(max_length=200)
+    intro = models.TextField()
+    description = models.TextField()
+    author = models.CharField(max_length=100)
+    date = models.DateField(auto_now_add=True)
+    image = models.ImageField(upload_to='blog_images/')
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+    
+from ckeditor.fields import RichTextField
+from django.utils.text import slugify
+class ReadBlog(models.Model):
+    title = models.CharField(max_length=255)
+    subtitle = models.TextField(blank=True)
+    category = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+
+    image = models.ImageField(upload_to='blogs/')
+    content = RichTextField()
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    slug = models.SlugField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title

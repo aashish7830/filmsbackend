@@ -6,6 +6,7 @@ from .views import contact_page
 from .views import submit_contact
 
 
+
 urlpatterns = [
     path('', views.home, name='home'),
      path('services/', views.services, name='services'),
@@ -17,6 +18,6 @@ urlpatterns = [
        path('contact/', contact_page, name='contact'),
         path('submit-contact/', submit_contact, name='submit_contact'),
         # path('read-blog/', views.read_blog, name='read_blog'),
-        path('read-blog/<str:id>/', views.read_blog, name='read_blog')
+        path('read_blog/<slug:slug>/', views.read_blog, name='read_blog')
 
 ]

@@ -148,23 +148,23 @@ body {
     <a href="{% url 'blog' %}" class="back-btn">← Back to Blogs</a>
 
     <header class="blog-header-panel">
-        <span class="category-label" id="blog-category">BLOG</span>
-        <h1 id="blog-title">Loading...</h1>
-        <p class="subtitle" id="blog-subtitle"></p>
+        <span class="category-label">BLOG • {{ blog.category }}</span>
+        <h1  >{{ blog.title }}</h1>
+        <p class="subtitle"  >{{ blog.subtitle }}</p>
         
         <div class="meta-tags">
-            <span class="tag" id="blog-date"></span>
-            <span class="tag" id="blog-author"></span>
+            <span class="tag"  >{{ blog.created_at }}</span>
+            <span class="tag"  >{{ blog.author }}</span>
         </div>
     </header>
 
     <div class="featured-image-box">
-        <img id="blog-image" src="" alt="Featured Image">
+        <img src="{{ blog.image.url }}"  alt="blog-image">
     </div>
 
     <!-- Is section ko empty rakhein, JS content fill karega -->
-    <article class="content-panel" id="blog-content">
-
+    <article class="content-panel" >
+            {{ blog.content|safe }}
     </article>
 </div>
 
@@ -174,6 +174,6 @@ body {
   
 <script src="{% static 'js/script.js' %}"></script>
 
-<script src="{% static 'js/blog-data.js' %}"></script>
+{% comment %} <script src="{% static 'js/blog-data.js' %}"></script> {% endcomment %}
  
 </html>
