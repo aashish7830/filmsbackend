@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <!-- /* services page */ -->
     <style>
         /* Basic Styling - Same as before */
@@ -354,9 +354,9 @@
         /* Typography */
   
 .reel-box h3 {
-    font-family: 'Arial Black', 'Arial', sans-serif; /* Heavy font for Nexa */
+     
     font-size: 25px; /* Large heading */
-    font-weight: 900;
+     {% comment %} color: #0d90ee; {% endcomment %}
     color: #54626C;
     margin: 0;
     text-align: center;
@@ -366,9 +366,9 @@
 
 .reel-box p {
     text-align: center;
-    font-family: 'Arial', sans-serif;
+    
     font-size: 18px; /* Subheading size */
-    font-weight: 700; /* Commercial thoda bold hai image mein */
+    
     color: #54626C;
     margin: 0px 0 0; /* Heading ke ekdum niche */
     line-height: 1.2;

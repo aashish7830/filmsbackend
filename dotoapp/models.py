@@ -65,7 +65,14 @@ class TeamMember(models.Model):
 class DigitalImpactStory(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='digital_stories/')
+    slug = models.SlugField(unique=True, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+    
 
     def __str__(self):
         return self.title

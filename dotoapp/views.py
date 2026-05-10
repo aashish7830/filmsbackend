@@ -68,6 +68,7 @@ def recognition(request):
 
 def portfolio(request):
     stories = DigitalImpactStory.objects.all()
+    
     items = CreativeContentPortfolio.objects.all()
     return render(request, 'Portfolio.html', {
         'stories': stories,

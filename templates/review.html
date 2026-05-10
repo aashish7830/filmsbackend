@@ -53,9 +53,9 @@
         /* Typography */
   
 .reel-box h3 {
-    font-family: 'Arial Black', 'Arial', sans-serif; /* Heavy font for Nexa */
+    
     font-size: 25px; /* Large heading */
-    font-weight: 900;
+    
     color: #546670;
     margin: 0;
     line-height: 1;
@@ -65,9 +65,9 @@
 }
 
 .reel-box p {
-    font-family: 'Arial', sans-serif;
+    
     font-size: 18px; /* Subheading size */
-    font-weight: 700; /* Commercial thoda bold hai image mein */
+     
     color: #546670;
     margin: 0px 0 0; /* Heading ke ekdum niche */
     line-height: 1.6;
@@ -441,7 +441,7 @@
                         {% endfor %}
                                     </div>
                                 </div>
-                                <i class="fa-solid fa-quote-right quote-icon"></i>
+                                {% comment %} <i class="fa-solid fa-quote-right quote-icon"></i> {% endcomment %}
                             </div>
                             <p class="review-text">{{ r.review|truncatewords:8 }}</p>
                         </div>

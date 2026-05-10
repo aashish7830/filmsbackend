@@ -31,7 +31,8 @@ admin.site.register(TeamMember, TeamAdmin)
 
 
 class DigitalStoryAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at')
+    list_display = ('title','slug', 'created_at')
+    prepopulated_fields = {'slug': ('title',)}
 
 admin.site.register(DigitalImpactStory, DigitalStoryAdmin)
 
@@ -63,8 +64,9 @@ class SuccessStoriesAdmin(admin.ModelAdmin):
 
 
 admin.site.register(OurBlog)
-list_display = ('title', 'author', 'date')
-prepopulated_fields = {"slug": ("title",)}
+class OurBlogAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'date')
+    prepopulated_fields = {"slug": ("title",)}
 
 
 

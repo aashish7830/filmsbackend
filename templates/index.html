@@ -7,6 +7,7 @@
   <title>TwoDots Films - Reconstructed Layout</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   
@@ -18,24 +19,17 @@
 
 
 
-  <section class="hero-center" id="home">
-  <div class="video-container">
-    <video controls autoplay muted playsinline class="main-video">
-      <source src=" {%static 'images\Yotta Data Center Film.mp4'%}" type="video/mp4">
-       
+<section class="hero-center" id="home">
+   
+    <video autoplay muted loop playsinline  class="main-video">
+      <source src=" {%static 'images\Yotta Data Center Film.mp4'%}" type="video/mp4" >
     </video>
-  </div>
-
   
 </section>
-
-
-
-    
     <section class="headline-block">
       <a href="{% url 'services' %}" class="service-btn1"> <h2>OUR SERVICES</h2></a><br>
       <a href="{% url 'portfolio' %}" class="service-btn1"> <h2>DIGITAL IMPACT STORIES</h2></a><br>
-      <a href="{% url 'portfolio' %}#creative" class="service-btn1"> <h2>CREATIVE CONTENT PORTFOLIO</h2></a>
+      <a href="{% url 'portfolio' %}#Creative" class="service-btn1"> <h2>CREATIVE CONTENT PORTFOLIO</h2></a>
     </section>
 
        <section class="section-banner">

@@ -146,6 +146,20 @@
     .reel-grid div:nth-child(9) { order: 9; } /* Text 5 */
     .reel-grid div:nth-child(10) { order: 10; } /* Image 5 */
 }
+
+ 
+.image-link1:hover img {
+    transform: scale(1.02); /* Image thodi zoom hogi */
+     cursor: pointer;
+       transition: 0.3s ease;
+}
+
+ 
+
+
+
+
+
      
           /* Image link container */
  .image-link{
@@ -159,6 +173,7 @@
 .image-link:hover img {
     transform: scale(1.09); /* Image thodi zoom hogi */
      cursor: pointer;
+     color:red;
 }
 
 .image-link img {
@@ -216,6 +231,9 @@
             width: 100%;
         }
     }
+      #Creative{
+   scroll-margin-top: 100px;
+}
           
     </style>
 </head>
@@ -242,7 +260,8 @@
             <!-- Card 1 -->
              {% for story in stories %}
             <div class="testimonial-card">
-                <img src="{{ story.image.url }}" class="profile-img" alt="{{ story.title }}">
+                <a href="{% url 'read_blog' story.slug %}" class="image-link1" target="_blank">
+                <img src="{{ story.image.url }}" class="profile-img" alt="{{ story.title }}"></a>
                  
             </div>
             {% endfor %}
@@ -252,7 +271,7 @@
 </div>
 
     
-<div class="section-banner" ><h2 class="section-title"  id="creative">Creative Content <span class="accent">Portfolio</span></h2></div>
+<div class="section-banner" ><h2 class="section-title"  id="Creative">Creative Content <span class="accent">Portfolio</span></h2></div>
      <div class="reel-grid">
         
          {% for item in items %}
@@ -271,7 +290,7 @@
         </div>
          {% else %}
           <div class="reel-box image-box">
-            <a href="{{ reel2.link }}" class="reel-link">
+            <a href="{{ item.link }}" class="image-link">
             <img src="{{ item.image.url }}" alt="{{ item.title }}"></a>
         </div>
         <div class="reel-box text-box">
